@@ -1,0 +1,21 @@
+<head>
+    <title>Popular</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+<%- include('header') -%>
+
+    <div>
+        <h2 class="section-title">Prueba</h2>
+      <ul>
+        <% for( let i = 0; i < movieList.length; i++ ) { %>
+          <li>
+            
+            <%= movieList[i].title %>
+            
+          </li>
+        <% } %>
+      )
+    </ul>
+</div>
+
+<%- include('footer') -%>

@@ -1,0 +1,67 @@
+<head>
+    <title>Detail</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+<%- include('header') -%>
+
+<h1 class="title-detail"><%= movieDetail.title %> </h1>
+<div class="year-runtime-detail"><%= imdbDetail.Year %> - <%= movieDetail.runtime %> min</div>
+<div class="box-movie-detail">
+    <div class="detail-part1">
+        <img class="poster-detail" src="https://www.themoviedb.org/t/p/w220_and_h330_face<%= movieDetail.poster_path %>" alt="">
+
+    </div>
+    <div class="general-info">
+        
+        <div class="ratings">
+            <h3 ckass="rating-title">Ratings</h3>
+            <% for( let i = 0; i < imdbDetail.Ratings.length; i++ ) { 
+                if(imdbDetail.Ratings[i].Source=="Internet Movie Database"){%>
+            
+                <div class="rating-detail">
+                    <div><img src="/images/IMDB_Logo.png" alt=""></div>
+                    <span class="imdb-rating"> <%= imdbDetail.Ratings[i].Value %></span>
+                </div>
+            
+            <% } else if(imdbDetail.Ratings[i].Source=="Rotten Tomatoes"){ %>
+                <div class="rating-detail">
+                    <div><img src="/images/Rotten_Tomatoes_Logo.png" alt=""></div>
+                    <span class="rt-rating"> <%= imdbDetail.Ratings[i].Value %></span>
+                </div>
+            <% }else {%>
+                <div class="rating-detail">
+                    <div><img src="/images/Metacritic_Logo.png" alt=""></div>
+                    <span class="metacritic-rating"> <%= imdbDetail.Ratings[i].Value %></span>
+                </div>
+            <% }} %>
+                <div class="rating-detail">
+                    <div><img src="/images/tmdb-logo.png" alt=""></div>
+                    <span class="tmdb-rating"><%= Number(movieDetail.vote_average.toFixed(1)) %></span>
+                </div>
+        </div>
+        
+        <div class="detail-part2">
+            <hr>
+            <div class="genres-detail"><%= imdbDetail.Genre %></div>
+            <hr>
+            <div class="director">
+                <div class="director-detail">Director: </div>
+                <div class="director-name"><%= imdbDetail.Director %></div>
+            </div>
+            <div class="actors">
+                <div class="actors-detail">Actors: </div>
+                <div class="actors-name"><%= imdbDetail.Actors %></div>
+            </div>
+            <div class="description-detail">Plot:</div><div class="plot"><%= movieDetail.overview %></div>
+            
+        </div>
+    </div>
+    <div class="video">
+        <iframe width="400" height="225" src="https://www.youtube.com/embed/<%=videoDetail.results[0].key%>"
+        title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+        </iframe>
+    </div>
+
+</div>
+
+<%- include('footer') -%>

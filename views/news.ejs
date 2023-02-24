@@ -1,0 +1,22 @@
+<head>
+    <title>News</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+<%- include('header') -%>
+
+<h2 class="section-title">News</h2>
+
+<p class="news-descrption">News collected from different sites</p>
+
+<div class="news">
+  <% for( let i = 0; i < news.length; i++ ) { %>
+    <div class="news-box">
+      <h4 class="news-title"> <%= news[i].title %> </h4> 
+      <a href="<%= news[i].link %>"><img class="news-image" src="<%= news[i].image %>" alt=""></a>
+      
+    </div>
+    
+  <% } %>
+</div>
+
+<%- include('footer') -%>

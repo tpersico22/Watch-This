@@ -1,0 +1,48 @@
+<head>
+    <title>Search results</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+<%- include('header') -%>
+
+<h2 class="section-title">Results</h2>
+
+<div class="search-results">
+  <% for( let i = 0; i < resultsDetail.results.length; i++ ) { %>
+    <a href="/movies/<% if (resultsDetail.results[i].media_type=="movie") { %>detail/<% } else { %>detail-serie/<% } %><%= resultsDetail.results[i].id %>" 
+        
+        class="results-url">
+        <div class="results-box">
+            <img class="results-image" src="https://www.themoviedb.org/t/p/w220_and_h330_face<%= resultsDetail.results[i].poster_path %>" alt="">
+            <div class="results-info">
+                <h4 class="results-title">
+                    <% if (resultsDetail.results[i].media_type=="movie") { %>
+                        <%= resultsDetail.results[i].title %>
+                    <% } else { %>
+                        <%= resultsDetail.results[i].name %>
+                    <% } %>
+                </h4>
+                <p class="results-type"> 
+                    <% if (resultsDetail.results[i].media_type=="movie") { %>
+                        Movie
+                    <% } else { %>
+                        TV Serie
+                    <% } %>
+                </p>
+                <p class="results-year">Year: 
+                    <% if (resultsDetail.results[i].media_type=="movie") { %>
+                        <%= resultsDetail.results[i].release_date %>
+                    <% } else { %>
+                        <%= resultsDetail.results[i].first_air_date %>
+                    <% } %>
+                </p>
+                
+            </div>
+            
+        </div>
+    
+    </a>
+    
+  <% } %>
+</div>
+
+<%- include('footer') -%>

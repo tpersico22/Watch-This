@@ -1,0 +1,59 @@
+  <head>
+    <title> Que Mirar</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="/javascripts/index.js"></script>
+  </head>
+  <%- include('header') -%>
+
+    <h2 class="section-title">Top Rated Movies</h2>
+
+    <div id="carrusel" class="carrusel">
+      <div class="last-movies">
+        <% for( let i = 0; i < movieList.length; i++ ) { %>  
+          
+          <a href="/movies/detail/<%= movieList[i].id %>">
+            <div class="movie-box">
+              <img class="poster" src="https://www.themoviedb.org/t/p/w220_and_h330_face<%= movieList[i].poster_path %>" alt="">
+              <div class="rating-detail">
+                <img src="/images/Tmdb-black-logo.png" alt="">
+                <p class="tmdb-rating2"><%= Number(movieList[i].vote_average.toFixed(1)) %></p>
+              </div>
+            </div>
+          </a>
+          
+        <% } %>
+      </div>
+    </div>
+    <div class="buttons-carrusel">
+      <button role="button" id="button-left" class="button-left"><i class="fas fa-angle-left"></i></button>
+      <button role="button" id="button-right" class="button-right"><i class="fas fa-angle-right"></i></button>
+    </div>
+
+    <h2 class="section-title">Top Rated Series</h2>
+
+    <div id="carrusel-series" class="carrusel">
+      <div class="last-movies">
+        <% for( let i = 0; i < seriesList.length; i++ ) { %>  
+          
+          <a href="/movies/detail-serie/<%= seriesList[i].id %>">  
+          <div class="movie-box">
+              <img class="poster" src="https://www.themoviedb.org/t/p/w220_and_h330_face<%= seriesList[i].poster_path %>" alt="">
+              <div class="rating-detail">
+                <img src="/images/Tmdb-black-logo.png" alt="">
+                <p class="tmdb-rating2"><%= Number(seriesList[i].vote_average.toFixed(1)) %></p>
+              </div>
+            </div>
+          </a>
+          
+        <% } %>
+      </div>
+    </div>
+    <div class="buttons-carrusel">
+      <button role="button" id="button-left-series" class="button-left"><i class="fas fa-angle-left"></i></button>
+      <button role="button" id="button-right-series" class="button-right"><i class="fas fa-angle-right"></i></button>
+    </div>
+
+
+    
+
+  <%- include('footer') -%>
