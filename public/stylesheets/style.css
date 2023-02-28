@@ -104,9 +104,39 @@ a {
 .nav-burger-button{
   margin: auto;
   color: #d87c42;
+  background-color: rgb(53, 52, 52);
   text-align: center;
   padding: 10px;
   font-size: 35px;
+  cursor: pointer;
+  position: relative;
+}
+
+#nav-burger-open{
+  display: none;
+  text-align: center;
+  list-style: none;
+  background-color: rgb(53, 52, 52);
+  color: #d87c42;
+  padding: 15px;
+  margin: 0px;
+  transition: all 450ms;
+}
+
+#menu .nav-burger-button:hover #nav-burger-open{
+  display: block;
+}
+
+.nav-burger-open li a {
+  text-decoration: none;
+
+}
+
+.nav-burger-open li {
+  padding: 2%;
+  font-size: 18px;
+  cursor: pointer;
+
 }
 
 
@@ -528,8 +558,18 @@ a {
 
 /*Login*/
 
-.under-construction{
+.login{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.coming-soon{
+  margin: auto;
   text-align: center;
+  width: 540px;
+  max-width: 70%;
 }
 
 /*Footer*/
@@ -549,6 +589,10 @@ footer{
   }
 
   .nav-burger-button{
+    display: none;
+  }
+
+  .nav-burger-open{
     display: none;
   }
 

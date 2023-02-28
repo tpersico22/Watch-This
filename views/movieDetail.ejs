@@ -25,12 +25,12 @@
             
             <% } else if(imdbDetail.Ratings[i].Source=="Rotten Tomatoes"){ %>
                 <div class="rating-detail">
-                    <div><img src="/images/Rotten_Tomatoes_Logo.png" alt=""></div>
+                    <div><img src="/images/Rotten_Tomatoes_logo.png" alt=""></div>
                     <span class="rt-rating"> <%= imdbDetail.Ratings[i].Value %></span>
                 </div>
             <% }else {%>
                 <div class="rating-detail">
-                    <div><img src="/images/Metacritic_Logo.png" alt=""></div>
+                    <div><img src="/images/Metacritic_logo.png" alt=""></div>
                     <span class="metacritic-rating"> <%= imdbDetail.Ratings[i].Value %></span>
                 </div>
             <% }} %>
