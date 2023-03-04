@@ -12,6 +12,8 @@ router.get("/detail-serie/:id", moviesController.detailSerie);
 router.get("/popular", moviesController.moviePopular);
 router.get("/popular-today", moviesController.popularToday);
 router.get("/recommended", moviesController.recommended);
+router.get("/top-rated-movies/:page", moviesController.topRatedMovies);
+router.get("/top-rated-series/:page", moviesController.topRatedSeries);
 router.get("/news", moviesController.news);
 router.post("/search", moviesController.search);
 

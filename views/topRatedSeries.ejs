@@ -1,0 +1,36 @@
+<head>
+    <title>Watch This - Top Rated Series</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="/javascripts/index.js"></script>
+  </head>
+  <%- include('header') -%>
+
+    <h2 class="section-title">Top Rated Series</h2>
+
+      <div class="top-rated">
+        <% for( let i = 0; i < seriesList.length; i++ ) { %>  
+          
+          <a href="/movies/detail-serie/<%= seriesList[i].id %>">
+            <div class="movie-box">
+              <img class="poster" src="https://www.themoviedb.org/t/p/w220_and_h330_face<%= seriesList[i].poster_path %>" alt="">
+              <div class="rating-detail">
+                <img src="/images/Tmdb-black-logo.png" alt="">
+                <p class="tmdb-rating2"><%= Number(seriesList[i].vote_average.toFixed(1)) %></p>
+              </div>
+            </div>
+          </a>
+          
+        <% } %>
+      </div>
+
+      <div class="buttons-page">
+        <% if (page != 1) { %>
+            <button role="button" id="button-left" class="button-left"><a href="/movies/top-rated-series/<%= page - 1 %>"><i class="fas fa-angle-left"></i></a></button>
+        <% } %>
+        <div class="page-number">
+            Page: <%= page %>
+        </div>
+            <button role="button" id="button-right" class="button-right"><a href="/movies/top-rated-series/<%= Number(page)+1 %>"><i class="fas fa-angle-right"></i></a></button>
+      </div>
+
+  <%- include('footer') -%>

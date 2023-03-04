@@ -36,6 +36,18 @@ a {
   margin: auto;
 }
 
+.ul-content li a{
+  transition: all 450ms;
+}
+
+.ul-content li a:hover{
+  background-color: #d87c42;
+  color: black;
+  font-weight: bold;
+  padding: 15px;
+
+}
+
 .logo{
   width: 80px;
 }
@@ -99,6 +111,7 @@ a {
   height: 25px;
   width: 100px;
 }
+
 
 /*Burger Button*/
 .nav-burger-button{
@@ -502,6 +515,86 @@ a {
 .creator-title{
   font-weight: bold;
 }
+
+/*Top-Rated*/
+.top-rated{
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+  max-width: 1050px;
+}
+
+.page-number{
+  padding: 20px;
+  text-align: center;
+  color: #FF914D;
+  font-size: 20px;
+}
+
+.buttons-page{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  max-width: 300px;
+  margin: auto;
+  align-items: center;
+  padding-bottom: 30px;
+}
+
+.buttons-page a {
+  text-decoration: none;
+  color: black;
+}
+
+.buttons-page .button-left{
+  color:black;
+  font-size: 25px;
+  font-weight: bold;
+  background-color: #FF914D;
+  border: solid 1px #a85d2f;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  box-shadow: 0px 0px 10px rgb(100, 100, 100);
+  transition: all 450ms;
+  cursor: pointer;
+}
+
+.buttons-page .button-left:hover{
+  color:black;
+  background-color: #f8b58c;
+  border: solid 1px #dd9e79;
+}
+
+.buttons-page .button-right{
+  color:black;
+  font-size: 25px;
+  font-weight: bold;
+  background-color: #FF914D;
+  border: solid 1px #a85d2f;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  box-shadow: 0px 0px 10px rgb(100, 100, 100);
+  transition: all 450ms;
+  cursor: pointer;
+}
+
+.buttons-page .button-right:hover{
+  color:black;
+  background-color: #f8b58c;
+  border: solid 1px #dd9e79;
+}
+
+.top-rated a {
+  text-decoration: none;
+}
+
+
+
 
 /*Search*/
 

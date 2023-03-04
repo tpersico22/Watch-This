@@ -105,8 +105,25 @@ let moviesController = {
         return res.render("recommended", {movieList:movieList.results, seriesList:seriesList.results});
                 
 
+    },
+    topRatedMovies: async function (req, res) {
+        let page = req.params.page;
+
+        let movieList = await fetch('https://api.themoviedb.org/3/movie/top_rated?api_key=bda2379e4423a63a49dc0af78212ffab&language=en-US&page='+page)
+            .then(response => response.json())
+
+        return res.render("topRatedMovies", {movieList:movieList.results, page:page});
+                
+
+    },
+    topRatedSeries: async function (req, res) {
+        let page = req.params.page;
+
+        let seriesList = await fetch('https://api.themoviedb.org/3/tv/top_rated?api_key=bda2379e4423a63a49dc0af78212ffab&language=en-US&page='+page)
+            .then(response => response.json())
+
+        return res.render("topRatedSeries", {seriesList:seriesList.results, page:page});
     }
-    
 }
 
 module.exports = moviesController;
