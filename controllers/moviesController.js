@@ -65,7 +65,10 @@ let moviesController = {
         let videoDetail = await fetch ('https://api.themoviedb.org/3/movie/'+id+'/videos?api_key=bda2379e4423a63a49dc0af78212ffab&language=en-US')
             .then(response => response.json())
 
-        return res.render("movieDetail", {movieDetail: movieDetail, imdbDetail:imdbDetail, videoDetail:videoDetail});
+        let similarMovies = await fetch ('https://api.themoviedb.org/3/movie/'+id+'/similar?api_key=bda2379e4423a63a49dc0af78212ffab&language=en-US&page=1')
+            .then(response => response.json())
+
+        return res.render("movieDetail", {movieDetail: movieDetail, imdbDetail:imdbDetail, videoDetail:videoDetail, similarMovies:similarMovies});
 
     },
     detailSerie: async function(req, res){
@@ -83,7 +86,10 @@ let moviesController = {
         let videoDetail = await fetch ('https://api.themoviedb.org/3/tv/'+idSerie+'/videos?api_key=bda2379e4423a63a49dc0af78212ffab&language=en-US')
             .then(response => response.json())
 
-        return res.render("serieDetail", {serieDetail: serieDetail, imdbDetail:imdbDetail, serieIdExternal:serieIdExternal, videoDetail: videoDetail});
+        let similarSeries = await fetch ('https://api.themoviedb.org/3/tv/'+idSerie+'/similar?api_key=bda2379e4423a63a49dc0af78212ffab&language=en-US&page=1')
+            .then(response => response.json())
+
+        return res.render("serieDetail", {serieDetail: serieDetail, imdbDetail:imdbDetail, serieIdExternal:serieIdExternal, videoDetail: videoDetail, similarSeries:similarSeries});
     
 
 
@@ -112,8 +118,54 @@ let moviesController = {
         let movieList = await fetch('https://api.themoviedb.org/3/movie/top_rated?api_key=bda2379e4423a63a49dc0af78212ffab&language=en-US&page='+page)
             .then(response => response.json())
 
+        //IMDB Rating Process
+
+        /*
+        
+        let idTmdb = []
+
+        for(i = 0; i<movieList.results.length; i++){
+            idTmdb.push(movieList.results[i].id)
+
+        }
+
+        console.log(idTmdb);
+
+        let seriesIdExternal =[]
+        
+        for(i = 0; i<idTmdb.length; i++){
+        
+        seriesIdExternal.push(await fetch ('https://api.themoviedb.org/3/movie/'+idTmdb[i]+'/external_ids?api_key=bda2379e4423a63a49dc0af78212ffab&language=en-US')
+        .then(response => response.json()))
+
+        }
+
+        console.log(seriesIdExternal)
+
+        imdbIds = []
+
+        for(i = 0; i<seriesIdExternal.length; i++){
+            imdbIds.push(seriesIdExternal[i].imdb_id)
+        }
+
+        console.log(imdbIds)
+
+        
+        let imdbInfo = []
+
+        for(i = 0; i<imdbIds.length; i++){
+        
+            imdbInfo.push(await fetch ('http://www.omdbapi.com/?i='+imdbIds[i]+'&apikey=f14ef577')
+            .then(response => response.json()))
+    
+        }
+
+        console.log(imdbInfo)
+
+        */
+        
         return res.render("topRatedMovies", {movieList:movieList.results, page:page});
-                
+    
 
     },
     topRatedSeries: async function (req, res) {

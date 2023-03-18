@@ -503,17 +503,75 @@ a {
 
 .video-small{
   margin: auto;
+  padding-top: 18px;
   padding-bottom: 20px;
 }
 
 .video{
   display: none;
   margin: auto;
+  padding-top: 18px;
   padding-bottom: 20px;
 }
 
 .creator-title{
   font-weight: bold;
+}
+
+.tagline{
+  color: rgb(63, 62, 62);
+  font-weight: bold;
+  font-size: 14px;
+  text-align: center;
+  font-style: italic;
+  padding-top: 10px;
+  max-width: 200px;
+}
+
+/*Similar Movies/TV Series*/
+
+.detail-part3{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: center;
+  align-items: center;
+}
+
+.similar-movie-tv a{
+  text-decoration: none;
+}
+
+.similar-movie-tv{
+  padding: 10px;
+  margin: 3px;
+  background-color: black;
+  border-radius: 1%;
+  transition: 450ms all;
+}
+
+.similar-movie-tv:hover{
+  opacity: .8;
+}
+
+
+.similarImage{
+  width: 110px;
+}
+
+.similar{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding-bottom: 50px;
+  justify-content: center;
+}
+
+.similarTitle{
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-bottom: 10px;
+  font-size: 18px;
 }
 
 /*Top-Rated*/

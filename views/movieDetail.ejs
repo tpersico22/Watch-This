@@ -9,7 +9,7 @@
 <div class="box-movie-detail">
     <div class="detail-part1">
         <img class="poster-detail" src="https://www.themoviedb.org/t/p/w220_and_h330_face<%= movieDetail.poster_path %>" alt="">
-
+        <p class="tagline"><%= movieDetail.tagline %></p>
     </div>
     <div class="general-info">
         
@@ -56,16 +56,35 @@
             
         </div>
     </div>
-    <div class="video-small">
-        <iframe width="260" height="146" src="https://www.youtube.com/embed/<%=videoDetail.results[0].key%>"
-        title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
-        </iframe>
-    </div>
 
-    <div class="video">
-        <iframe width="400" height="225" src="https://www.youtube.com/embed/<%=videoDetail.results[0].key%>"
-        title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
-        </iframe>
+    <div class="detail-part3">
+
+    <%if(videoDetail.results.length != 0){%>
+
+        <div class="video-small">
+            <iframe width="260" height="146" src="https://www.youtube.com/embed/<%=videoDetail.results[0].key%>"
+            title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+            </iframe>
+        </div>
+
+        <div class="video">
+            <iframe width="400" height="225" src="https://www.youtube.com/embed/<%=videoDetail.results[0].key%>"
+            title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+            </iframe>
+        </div>
+
+    <%}%>
+
+    <h3 class="similarTitle">Similar Movies</h3>
+        
+        <div class="similar">
+            <%for(let i = 0; i<3; i++){%>
+                <div class="similar-movie-tv">
+                    <a href="http://localhost:3000/movies/detail-serie/<%=similarMovies.results[i].id %>"><img class="similarImage"src="https://www.themoviedb.org/t/p/w220_and_h330_face<%= similarMovies.results[i].poster_path %>" alt=""></a>
+                </div>
+            <%}%>
+        </div>
+
     </div>
 
 </div>
