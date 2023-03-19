@@ -65,7 +65,7 @@ let moviesController = {
         let videoDetail = await fetch ('https://api.themoviedb.org/3/movie/'+id+'/videos?api_key=bda2379e4423a63a49dc0af78212ffab&language=en-US')
             .then(response => response.json())
 
-        let similarMovies = await fetch ('https://api.themoviedb.org/3/movie/'+id+'/similar?api_key=bda2379e4423a63a49dc0af78212ffab&language=en-US&page=1')
+        let similarMovies = await fetch ('https://api.themoviedb.org/3/movie/'+id+'/recommendations?api_key=bda2379e4423a63a49dc0af78212ffab&language=en-US&page=1')
             .then(response => response.json())
 
         return res.render("movieDetail", {movieDetail: movieDetail, imdbDetail:imdbDetail, videoDetail:videoDetail, similarMovies:similarMovies});
@@ -86,7 +86,7 @@ let moviesController = {
         let videoDetail = await fetch ('https://api.themoviedb.org/3/tv/'+idSerie+'/videos?api_key=bda2379e4423a63a49dc0af78212ffab&language=en-US')
             .then(response => response.json())
 
-        let similarSeries = await fetch ('https://api.themoviedb.org/3/tv/'+idSerie+'/similar?api_key=bda2379e4423a63a49dc0af78212ffab&language=en-US&page=1')
+        let similarSeries = await fetch ('https://api.themoviedb.org/3/tv/'+idSerie+'/recommendations?api_key=bda2379e4423a63a49dc0af78212ffab&language=en-US&page=1')
             .then(response => response.json())
 
         return res.render("serieDetail", {serieDetail: serieDetail, imdbDetail:imdbDetail, serieIdExternal:serieIdExternal, videoDetail: videoDetail, similarSeries:similarSeries});
