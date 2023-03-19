@@ -80,7 +80,7 @@
         <div class="similar">
             <%for(let i = 0; i<3; i++){%>
                 <div class="similar-movie-tv">
-                    <a href="http://localhost:3000/movies/detail-serie/<%=similarMovies.results[i].id %>"><img class="similarImage"src="https://www.themoviedb.org/t/p/w220_and_h330_face<%= similarMovies.results[i].poster_path %>" alt=""></a>
+                    <a href="/movies/detail/<%=similarMovies.results[i].id %>"><img class="similarImage"src="https://www.themoviedb.org/t/p/w220_and_h330_face<%= similarMovies.results[i].poster_path %>" alt=""></a>
                 </div>
             <%}%>
         </div>
